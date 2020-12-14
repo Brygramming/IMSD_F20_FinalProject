@@ -11,7 +11,7 @@ public class Quizzing : MonoBehaviour
     public GameObject ButtonExit;
 	public Text InformationTitle;
     public Text Information;
-    public GameObject[] Images = new GameObject[29]; //To make SetActive work
+    public GameObject[] Images = new GameObject[29]; //To make SetActive work for images
     public GameObject ButtonPrevious;
     public GameObject ButtonNext;
 
@@ -20,7 +20,7 @@ public class Quizzing : MonoBehaviour
     string HyperLinks;
 
     //LevelArray
-    int[] Levels = {0, 1, 2, 3, 4, 5};
+    int[] Levels = {0, 1, 2, 3, 4, 5, 6};
     public int LevelState;
 
     void Start()
@@ -46,7 +46,7 @@ public class Quizzing : MonoBehaviour
         ButtonNext.SetActive(false);
         ButtonLink.SetActive(false);
 
-        //Makes images false
+        //Makes Images False
         for(int i = 0; i < 28; i++)
     	{
     		Images[i].SetActive(false);
@@ -55,24 +55,50 @@ public class Quizzing : MonoBehaviour
 
     void LevelControl()
     {
-        if(LevelState == Levels[5]) //Level 3
+        if(LevelState == Levels[6]) //Mini Game!!
         {
-            InformationTitle.text = "Test Three";
-            Information.text = "Question Test 3";
-            Images[1].SetActive(false);
-            Images[2].SetActive(true);
+            //Turning off the texts and buttons
+            Debug.Log("Mini Game");
+            InformationTitle.text = "";
+            Information.text = "";
+            ButtonPrevious.SetActive(false);
+            ButtonNext.SetActive(false);
+            ButtonLink.SetActive(false);
+
+            //Mini Game
+
         }
-        else if(LevelState == Levels[4])
+        else if(LevelState == Levels[5]) //Level 5
         {
-        	InformationTitle.text = "Test Three";
-            Information.text = "Question Test 3";
-            Images[1].SetActive(false);
-            Images[2].SetActive(true);
+            InformationTitle.text = "Hudson river";
+            Information.text = "Between 1947 and 1977, General Electric dumped an estimated 1.3 million pounds of polychlorinated biphenyls (PCBs) into the Hudson River. The source of the PCB discharges was two GE capacitor manufacturing plants located in Fort Edward and Hudson Falls, New York, about 50 miles north of Albany. GE’s PCBs are now found in sediment, water and wildlife throughout the Hudson River ecosystem as far south as the New York Harbor. They are also found in people. \nClick link for more detailed information.";
+            HyperLinks = "https://www.riverkeeper.org/water-quality/testing/what/other-pollutants/";
+            ButtonLink.SetActive(true);
+            Images[20].SetActive(true);
+            Images[21].SetActive(true);
+            Images[22].SetActive(true);
+            Images[23].SetActive(true);
+            Images[24].SetActive(true);
+            Images[25].SetActive(true);
+            Images[26].SetActive(true);
+            Images[27].SetActive(true);
         }
-        else if(LevelState == Levels[3])
+        else if(LevelState == Levels[4]) //Level 4
         {
-        	InformationTitle.text = "Test Three";
-            Information.text = "Question Test 3";
+        	InformationTitle.text = "Harlem river";
+            Information.text = "The Harlem River in New York City has provided the city’s communities with recreational opportunities like boating and fishing since the 1700s. Over time, human activities along the Harlem River, such as shipping, industry, and waste disposal, have severely affected the overall water quality of the river. \nNo link is provided.";
+            HyperLinks = "";
+            ButtonLink.SetActive(false);
+            Images[17].SetActive(true);
+            Images[18].SetActive(true);
+            Images[19].SetActive(true);
+        }
+        else if(LevelState == Levels[3]) //Level 3
+        {
+        	InformationTitle.text = "Gowanus canal";
+            Information.text = "The Gowanus Canal is one of the most heavily contaminated water bodies in the nation. This 1.8 miles long, 100 foot wide, the canal was built in the 19th century and historically was home to many industries including manufactured gas plants, cement factories, oil refineries, tanneries, and chemical plants. After nearly 150 years of use, the canal has become heavily contaminated with PCBs, heavy metals, pesticides, volatile organic compounds, sewage solids from combined sewer overflows, and polycyclic aromatic hydrocarbons (PAHs). \nNo link is provided.";
+            HyperLinks = "";
+            ButtonLink.SetActive(false);
             Images[11].SetActive(true);
             Images[12].SetActive(true);
             Images[13].SetActive(true);
@@ -82,9 +108,10 @@ public class Quizzing : MonoBehaviour
         }
         else if(LevelState == Levels[2]) //Level 2
         {
-            InformationTitle.text = "Gowanus canal";
-            Information.text = "The Gowanus Canal is one of the most heavily contaminated water bodies in the nation. This 1.8 miles long, 100 foot wide, the canal was built in the 19th century and historically was home to many industries including manufactured gas plants, cement factories, oil refineries, tanneries, and chemical plants. After nearly 150 years of use, the canal has become heavily contaminated with PCBs, heavy metals, pesticides, volatile organic compounds, sewage solids from combined sewer overflows, and polycyclic aromatic hydrocarbons (PAHs). \nNo link is provided.";
-            HyperLinks = "";
+            InformationTitle.text = "Flushing bay";
+            Information.text = "Flushing Bay has one of the largest CSO outfalls, which alone dumps a billion gallons of sewage and stormwater into Flushing Bay every year. \nClick link for more detailed information.";
+            HyperLinks = "https://www.guardiansofflushingbay.org/about-flushing-bay";
+            ButtonLink.SetActive(true);
             Images[5].SetActive(true);
             Images[6].SetActive(true);
             Images[7].SetActive(true);
@@ -97,6 +124,7 @@ public class Quizzing : MonoBehaviour
             InformationTitle.text = "Bronx River";
             Information.text = "Bronx River is still plagued by ongoing water pollution. Nearly every time it rains, raw sewage and polluted stormwater overflow from New York City's antiquated sewers. In a typical year, 455 million gallons of this 'combined sewer overflow' (CSO) are dumped into the Bronx River. \nClick link for more detailed information.";
             HyperLinks = "http://bronxriver.org/puma/images/usersubmitted/file/Eco/Bronx%20River%20LTCP%20factsheet.pdf";
+            ButtonLink.SetActive(true);
             Images[0].SetActive(true);
             Images[1].SetActive(true);
             Images[2].SetActive(true);
